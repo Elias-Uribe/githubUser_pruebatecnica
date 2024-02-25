@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { UserViewComponent } from './components/user-view/user-view.component';
 
 const routes: Routes = [
   {
@@ -8,6 +9,9 @@ const routes: Routes = [
   },
   {
     path: "home", component: HomeComponent
+  },
+  {
+    path: "user/:userLogin", component: UserViewComponent
   }
 ];
 

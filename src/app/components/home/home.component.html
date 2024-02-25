@@ -1,1 +1,18 @@
-<p>home works! <i class="fa-solid fa-car"></i></p>
+<header class="navbar bg-dark p-3 text-white shadow">
+  <app-header (nombreEmitido)="getUsers($event)" ></app-header>
+</header>
+<main>
+  <section class="container mt-3">
+    <h1>Listado de usuarios</h1>
+   
+    <ul *ngIf="arrUsers.length !== 0; else noResults" class="mt-2">
+      <li [routerLink]="['/user', user.login]" *ngFor="let user of arrUsers; trackBy: trackByFn" >
+        {{user.login}} - {{user.id}}  
+      </li>
+      
+    </ul>
+    <ng-template #noResults>
+      <p>No hay resultados de búsqueda</p>
+    </ng-template>
+  </section>
+</main>
