@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +15,10 @@ export class HeaderComponent {
     this.nombreEmitido = new EventEmitter<string>();
 
     this.searchForm = new FormGroup({
-      name: new FormControl('',[])
+      name: new FormControl('',[
+        Validators.minLength(4),
+        Validators.required
+      ])
     } , []) // {} campos, [] validaciones
 
   }
